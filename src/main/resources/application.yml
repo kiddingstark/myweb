@@ -30,6 +30,19 @@ spring:
       # 通过 connection-properties 属性打开 mergeSql 功能；慢 SQL 记录
       connection-properties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
 
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: # 密码（默认为空）
+    timeout: 6000ms  # 连接超时时长（毫秒
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 5
+
 server:
   port: 8082
 

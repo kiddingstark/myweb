@@ -9,21 +9,21 @@ import org.springframework.stereotype.Component;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BusinessException extends RuntimeException{
+public class BusinessException extends RuntimeException {
 
-    private Boolean success=false;
+    private Boolean success = false;
 
     private String code;
 
     private String msg;
 
     public BusinessException(String msg) {
-        this.success=false;
+        this.success = false;
         this.msg = msg;
     }
 
-    public BusinessException(String code,String msg) {
-        this.success=false;
+    public BusinessException(String code, String msg) {
+        this.success = false;
         this.msg = msg;
         this.code = code;
     }
