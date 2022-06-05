@@ -22,7 +22,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.test.demo" level="DEBUG">
+    <logger name="com.example.myweb" level="DEBUG">
         <appender-ref ref="DEFAULT"/>
     </logger>
     <!-- 日志输出级别 -->
