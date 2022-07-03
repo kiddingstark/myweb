@@ -36,7 +36,7 @@ public class MyExceptionHandler {
     @ResponseBody
     public Response handleException(BusinessException exception, HttpServletRequest request) {
         log.warn("http request BusinessException, uri={}, args={}", request.getRequestURI(), JSONObject.toJSONString(request.getParameterMap()), exception);
-        return Response.fail(exception.getMsg());
+        return Response.fail(exception.getCode(), exception.getMsg());
     }
 
     @ExceptionHandler(value = SystemException.class)

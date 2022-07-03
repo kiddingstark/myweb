@@ -20,8 +20,12 @@ public class UserEntity {
 
     private String password;
 
+    private Integer status;
+
     public static String USERNAME = "username";
     public static String PASSWORD = "password";
+    public static String STATUS = "status";
+
 
 
 }

@@ -25,4 +25,8 @@ public class UserResponseDto {
 
     @ApiModelProperty("密码")
     private String password;
+
+    @ApiModelProperty("状态 0:激活 1:禁用")
+    private Integer status;
+
 }

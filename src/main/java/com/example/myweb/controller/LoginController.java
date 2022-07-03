@@ -1,9 +1,10 @@
 package com.example.myweb.controller;
 
+import com.example.myweb.constant.UserStatus;
 import com.example.myweb.dto.Response;
-import com.example.myweb.dto.request.UserRequestDto;
 import com.example.myweb.dto.response.UserResponseDto;
 import com.example.myweb.service.UserService;
+import com.example.myweb.utils.AssertUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,14 +29,26 @@ public class LoginController {
 
     @GetMapping("/login")
     public Response<UserResponseDto> login(String username, String password, HttpServletRequest request) {
-        UserRequestDto userRequestDto = UserRequestDto.builder()
-                .username(username)
-                .password(password)
+//        UserRequestDto userRequestDto = UserRequestDto.builder()
+//                .username(username)
+//                .password(password)
+//                .build();
+//        UserResponseDto userResponseDto = userService.login(userRequestDto, request);
+
+//        if (null == userResponseDto) {
+//            return Response.fail("密码不正确！");
+//        }
+//        if (userResponseDto.getStatus().equals(UserStatus.NOT_ACTIVE.getCode())) {
+//            return Response.fail("账号已被禁用！");
+//        }
+
+        UserResponseDto userResponseDto = UserResponseDto.builder()
+                .username("test")
+                .password("test")
+                .status(1)
                 .build();
-        UserResponseDto userResponseDto = userService.login(userRequestDto, request);
-        if (null == userResponseDto) {
-            return Response.fail("密码不正确！");
-        }
+        AssertUtil.bussinessExceptionValidate(null == userResponseDto,"密码不正确!");
+        AssertUtil.bussinessExceptionValidate(userResponseDto.getStatus().equals(UserStatus.NOT_ACTIVE.getCode()),"账号已被禁用!");
         return Response.succeed(userResponseDto);
     }
 
